@@ -1,0 +1,29 @@
+@import "~bootstrap/scss/bootstrap";
+
+
+.buttonClass {
+    color: white;
+    background-color: black;
+    text-align: center;
+}
+
+input {
+    color: cyan !important;
+    background-color: rgb(46, 37, 37) !important; 
+    text-align: center;
+    
+}
+
+.text_area {
+    width:250px;
+    height:100px;
+}
+
+.headerStyle {
+    border: 5px;
+    border-color: black;
+}
+
+body{
+    color: cadetblue;
+}

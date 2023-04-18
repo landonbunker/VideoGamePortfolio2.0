@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @project.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @project.description %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @project.date %>
+</p>
+
+<p>
+  <strong>Rating:</strong>
+  <%= @project.rating %>
+</p>
+<%= button_to 'Edit Review', edit_project_path(@project), method:"get" %> 
+<%= button_to 'Back', projects_path, method:"get" %>

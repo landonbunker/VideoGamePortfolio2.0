@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<h1 class="headerStyle">Video Game Reviews</h1>
+
+<table class="table table-dark table-striped tabel-borderless">
+  <thead>
+    <tr>
+      <th>Title of the Video Game</th>
+      <th>Review</th>
+      <th>Date</th>
+      <th>Rating</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @projects.each do |project| %>
+
+      <tr>
+        <td><%= project.title %></td>
+        <td><%= project.description %></td>
+        <td><%= project.date %></td>
+        <td><%= project.rating %></td>
+        <td><%= button_to 'Show Review', project, method:"get" %></td>
+        <td><%= button_to 'Edit Review', edit_project_path(project), method:"get" %></td>
+        <td><%= button_to 'Destroy Review', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        
+      </tr>
+      <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= button_to 'Create New Review', new_project_path, method:"get" %>
+</div>
