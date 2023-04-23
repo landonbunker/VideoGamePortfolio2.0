@@ -14,8 +14,9 @@
   </thead>
 
   <tbody>
+  <% if user_signed_in? %>
   <% @projects.each do |project| %>
-    <% if user_signed_in? %>
+    
       <tr>
         <td><%= project.title %></td>
         <td><%= project.description %></td>
