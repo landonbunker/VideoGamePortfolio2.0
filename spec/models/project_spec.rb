@@ -14,17 +14,28 @@ describe "Project Attribute Requirements on Create", :type => :model do
       expect(project.save).to eq(false)
     end
     it "should be able to save project when have description and title" do
-      project = Project.new(title: "Title", description: "Content of the description")
+      project = Project.new(title: "Title", description: "Content of the description", rating: "10")
       expect(project.save).to eq(true)
     end
   end
 end
 
-
+describe "Project Attribute Requirements on Edit", :type => :model do
+  context "Edit project" do  
+    before (:each) do
+      @project = Project.create(title: "Title", description: "Content of the description")
+  
+      end
+    it "ensures the title is present when editing project" do
+      @project.update(:title => "New Title")
+      expect(@project.title == "New Title")
+    end
+  end
+end 
 describe "title and description must be entered", :type => :model do
     context "Create Project" do
         it "should be able to save project when have description and title" do
-            project = Project.new(title: " ", description: " ")
+            project = Project.new(title: " ", description: " ", rating: "")
       expect(project.save).to eq(true)
         end
     end

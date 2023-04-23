@@ -1,8 +1,5 @@
 require "rails_helper"
 
-
-
-
 RSpec.describe ProjectsController, :type => :controller do
     describe "test web requests" do
         context "GET #index" do
@@ -14,13 +11,13 @@ RSpec.describe ProjectsController, :type => :controller do
 
 
         context "GET #new" do
-            let!(:project) { Project.create(title: "Test title", description: "Test description") }
+            let!(:project) { Project.create(title: "Test title", description: "Test description" ,rating: "10") }
             it "returns a success response" do
                 expect(response).to have_http_status(:ok)
             end
         end
         context "GET #show" do
-            let!(:project) { Project.create(title: "Test title", description: "Test description") }
+            let!(:project) { Project.create(title: "Test title", description: "Test description", rating: "10") }
             it "returns a success response" do
                 expect(response).to have_http_status(:ok)
             end

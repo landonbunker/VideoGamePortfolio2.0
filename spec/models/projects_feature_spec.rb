@@ -12,6 +12,7 @@ RSpec.feature "Projects", type: :feature do
       scenario "should be successful" do
         within("form") do
           fill_in "Description", with: "New description content"
+          fill_in "Rating", with: "10"
         end
         click_button "Update Project"
         expect(page).to have_content("Project was successfully updated")
@@ -21,6 +22,7 @@ RSpec.feature "Projects", type: :feature do
       scenario "should fail" do
         within("form") do
           fill_in "Description", with: ""
+          
         end
         click_button "Update Project"
         expect(page).to have_content("Description can't be blank")
@@ -33,6 +35,13 @@ RSpec.feature "Projects", type: :feature do
         click_button "Update Project"
         expect(page).to have_content("Title can't be blank")
       end
+      scenario "should fail" do
+        within("form") do
+          fill_in "Rating", with: ""
+        end
+        click_button "Update Project"
+        expect(page).to have_content("Rating can't be blank")
+      end
     end
 end
 
@@ -44,6 +53,7 @@ RSpec.feature "Projects", type: :feature do
         within("form") do
           fill_in "Description", with: "New description content"
           fill_in "Title", with: "New Title Content"
+          fill_in "Rating", with: "10"
         end
         click_button "Create Project"
         expect(page).to have_content("Project was successfully Created")
